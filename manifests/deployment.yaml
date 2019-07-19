@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spinnaker-sample
+  labels:
+    app: spinnaker-sample
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spinnaker-sample
+  template:
+    metadata:
+      labels:
+        app: spinnaker-sample
+    spec:
+      containers:
+      - name: spinnaker-sample
+        image: cappyzawa/spinnaker-sample:latest
+        ports:
+        - name: http
+          containerPort: 8080
